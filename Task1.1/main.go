@@ -21,6 +21,6 @@ type Action struct {
 func main() {
 	h := Human{Name: "Pavel", Age: 25}
 	a := Action{Human: h}
-	// вызываем метод GetName у структуры Action
+	// Вызываем метод GetName у структуры Action
 	fmt.Println(a.GetName())
 }
