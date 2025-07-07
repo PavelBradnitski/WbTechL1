@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
+	// Выход по условию
 	fmt.Println("Starting example with exit by condition.")
 	var wg sync.WaitGroup
 	wg.Add(1)
-	// Выход по условию
 	go func() {
 		defer wg.Done()
 		for i := 0; i < 5; i++ {
@@ -25,8 +25,8 @@ func main() {
 	}()
 	wg.Wait()
 	fmt.Println("Example with exit by condition finished.")
+	// Выход по каналу уведомления
 	fmt.Println("Starting example with notification channel.")
-	// канал уведомления
 	done := make(chan bool)
 
 	go func(done chan bool) {
@@ -49,13 +49,11 @@ func main() {
 
 	time.Sleep(time.Second)
 	fmt.Println("Example with notification channel finished.")
+	// Выход по контекст с таймаутом
 	fmt.Println("Starting example with context.")
-
-	// Используем контекст с таймаутом для управления временем выполнения
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 	wg.Add(1)
-	// Запускаем горутину, которая будет слушать канал
 	go func(ctx context.Context) {
 		defer wg.Done()
 		for {
@@ -71,6 +69,7 @@ func main() {
 	}(ctx)
 	wg.Wait()
 	fmt.Println("Example with context finished.")
+	// Выход по runtime.Goexit
 	fmt.Println("Starting example with runtime.Goexit.")
 	wg.Add(1)
 	go func() {
