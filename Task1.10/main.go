@@ -15,13 +15,7 @@ func main() {
 		} else {
 			keyValue = int(math.Ceil(v/10) * 10)
 		}
-		val, ok := m[keyValue]
-		if !ok {
-			m[keyValue] = []float64{v}
-		} else {
-			val = append(val, v)
-			m[keyValue] = val
-		}
+		m[keyValue] = append(m[keyValue], v)
 	}
 	fmt.Println(m)
 }
