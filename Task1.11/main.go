@@ -7,6 +7,11 @@ import (
 func main() {
 	var nums1 = []int{1, 2, 3}
 	var nums2 = []int{2, 3, 4}
+	intersectionSlice := intersection(nums1, nums2)
+	fmt.Println(intersectionSlice)
+}
+
+func intersection(nums1, nums2 []int) []int {
 	intersection := make(map[int]bool)
 	// Создаем map для ускоренного поиска
 	nums1Map := make(map[int]bool)
@@ -20,9 +25,9 @@ func main() {
 		}
 	}
 	// Переносим данные из Map в []int
-	var intersectionSlice []int
+	intersectionSlice := make([]int, 0)
 	for key := range intersection {
 		intersectionSlice = append(intersectionSlice, key)
 	}
-	fmt.Println(intersectionSlice)
+	return intersectionSlice
 }
