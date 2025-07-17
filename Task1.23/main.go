@@ -16,7 +16,7 @@ func main() {
 }
 
 func DeleteElem(slice []int, index int) ([]int, error) {
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) || len(slice) == 0 {
 		return nil, fmt.Errorf("index out of range")
 	}
 	fmt.Printf("Длина слайса до удаления: %d\n", len(slice))
