@@ -15,7 +15,7 @@ func uniqueStrings(strSlice []string) []string {
 		uniqueStringsMap[v] = true
 	}
 	// Переносим данные из Map в []int
-	var uniqueStringsSlice []string
+	uniqueStringsSlice := make([]string, 0)
 	for key := range uniqueStringsMap {
 		uniqueStringsSlice = append(uniqueStringsSlice, key)
 	}
